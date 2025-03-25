@@ -8,4 +8,4 @@ These files in the same folder as the script:
 - `pi.txt` The decimal points of pi
 
 ## Output
-The output will be written to `./output.txt`, this file will be completly overwritten.
+The output will be written to `./output.txt`, this file will be completly overwritten, an example is visible on this repo.
