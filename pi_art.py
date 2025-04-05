@@ -26,7 +26,7 @@ for y in range(img_height): # Loop through every row
 			img.append(True)
 	img.append("\n") # Go to a new line
 
-output = open("./output.txt", "w") # Clear output file (Overwrite evryything)
+output = open("./output.txt", "w") # Clear output file (Overwrite everything)
 output.close()
 output = open("./output.txt", "a") # Open for appending each new character
 n = 0 # Digit of Pi counter
