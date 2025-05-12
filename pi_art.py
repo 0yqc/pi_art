@@ -1,7 +1,7 @@
 from PIL import Image # Read image contents
 
 pi_file = open("./pi.txt", "r", encoding="utf-8-sig") # Open file with decimal points of pi, You need enough decimal points to fill every non-transparent pixel in the image
-img_file = Image.open("./image.png").convert("LA") # Open the image file to be converted, and convert to LA
+img_file = Image.open("./image.png").convert("RGBA") # Open the image file to be converted, and convert to RGBA
 
 # One pixel gets converted to one digit, you need to scale down your image previously
 # Since one digit is not square, the image should be streched previously
@@ -13,7 +13,7 @@ img_data = img_file.load() # Load the image data
 img = [] # Initialize List
 for y in range(img_height): # Loop through every row
 	for x in range(img_width): # Loop through every column
-		a, n = img_data[x, y] # Ignoring everything except Alpha
+		n, n, n, a = img_data[x, y] # Ignoring everything except Alpha
 		
 		if a == 0: # Transparent Pixel > No Digit
 			img.append(False)
@@ -21,9 +21,7 @@ for y in range(img_height): # Loop through every row
 			img.append(True)
 	img.append("\n") # Go to a new line
 
-output = open("./output.txt", "w") # Clear output file (Overwrite everything)
-output.close()
-output = open("./output.txt", "a") # Open for appending each new character
+output = open("./output.txt", "w") # Open for appending each new character
 n = 0 # Digit of Pi counter
 for i in range(len(img)): # Loop through img list
 	if img[i] == True: # True > Digit
